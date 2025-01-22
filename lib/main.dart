@@ -344,13 +344,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('豊洲駅発　有楽町線', style: TextStyle(fontSize: 30)),
+          title: Text('豊洲駅発　有楽町線', style: TextStyle(fontSize: height * 0.03)),
         ),
         body: Column(
           children: [
@@ -369,29 +372,29 @@ class _MyAppState extends State<MyApp> {
             const SizedBox(height: 40),
             Column(children: [
               Text('${_selectedTimes[1]}発まで',
-                  style: const TextStyle(fontSize: 70)),
+                  style: TextStyle(fontSize: height * 0.1)),
               Text(_timeDiffs[1],
                   style: GoogleFonts.notoSerif(
-                      fontSize: 140,
+                      fontSize: height * 0.15,
                       fontWeight: FontWeight.w500,
                       color: const Color.fromARGB(255, 0, 255, 55))),
             ]),
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
               Column(children: [
                 Text('${_selectedTimes[0]}発まで',
-                    style: const TextStyle(fontSize: 50)),
+                    style: TextStyle(fontSize: height * 0.075)),
                 Text(_timeDiffs[0],
                     style: GoogleFonts.notoSerif(
-                        fontSize: 70,
+                        fontSize: height * 0.1,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 255, 17, 0))),
               ]),
               Column(children: [
                 Text('${_selectedTimes[2]}発まで',
-                    style: const TextStyle(fontSize: 40)),
+                    style: TextStyle(fontSize: height * 0.075)),
                 Text(_timeDiffs[2],
                     style: GoogleFonts.notoSerif(
-                        fontSize: 70,
+                        fontSize: height * 0.1,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 48, 38, 241))),
               ]),
